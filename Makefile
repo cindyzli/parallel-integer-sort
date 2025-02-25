@@ -1,11 +1,8 @@
-serial: check/check_numbers generate/NumberGenerator.class sort/sort_numbers
-	java generate.NumberGenerator | ./sort/sort_numbers | ./check/check_numbers
-
-check/check_numbers: check/check_numbers.cpp
-	g++ -o check/check_numbers check/check_numbers.cpp
-
-generate/NumberGenerator.class: generate/NumberGenerator.java
-	javac generate/NumberGenerator.java
+n ?= 100000
+path ?= sort/sort_numbers
+# usage: make n=[whatever] path=[path to ur sorting executable]
+serial: sort/sort_numbers
+	python3 check.py $(n) $(path)
 
 sort/sort_numbers: sort/sort_numbers.ml
 	ocamlc -o sort/sort_numbers sort/sort_numbers.ml
