@@ -7,8 +7,8 @@ let () = Seq.of_dispenser (fun () -> try Some (read_line ()) with End_of_file ->
   |> List.sort compare
   |> List.iter (Printf.printf "%d\n") *)
 
-  (*
-  SERIAL CODE
+  
+  (* SERIAL CODE *)
 let rec merge l x y = match (x,y) with 
   | ([],_) -> y
   | (_,[]) -> x
@@ -31,10 +31,13 @@ let () = Seq.of_dispenser (fun () -> try Some (read_line ()) with End_of_file ->
 |> List.of_seq
 |> mergesort (fun x y -> compare x y < 0)
 |> List.iter (Printf.printf "%d\n")
-  *)
+ 
 
 
 
+
+(* 
+PARALLEL ATTEMPT
 open Domainslib
 
 let rec parallel_mergesort pool arr =
@@ -68,4 +71,4 @@ let () =
   print_newline ();
   Task.teardown_pool pool
 (* mergesort (>) [2;6;1;8];;
-- : int list = [8; 6; 2; 1] *)
+- : int list = [8; 6; 2; 1] *) *)
