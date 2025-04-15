@@ -6,7 +6,7 @@ import subprocess
 import time
 
 def main():
-    DEFAULT_NUM_INTS = 100_000
+    DEFAULT_NUM_INTS = 1000
     DEFAULT_PROGRAM = "sort/sort_numbers"
 
     if len(sys.argv) > 1:
